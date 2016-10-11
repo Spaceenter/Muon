@@ -2,11 +2,16 @@
 
 <head>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="app.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
     <style type="text/css">
         th { white-space: nowrap; font-weight: 400; font-style: italic;}
         .input-group { max-width: 15rem }
         label {font-size: 15px;}
+        #result {display: none}
     </style>
 
     <title>Cosmic Muon</title>
@@ -136,15 +141,18 @@
                 <hr>
                 <br>
                 <div class="well" style="text-align: center">
-                    <button class='btn btn-primary btn-lg'>Calculate!</button>
+                    <button class='btn btn-primary btn-lg' id="calculate">Calculate!</button>
                 </div>
             </div>
 
         </div>
 
-        <div class="alert alert-info">
-            100.00% particles passing the upper counter are accepted by the lower counter.
-            The event rate is estimated to be: 1.00 /min, or 60.00 /hour.
+        <div class="alert alert-info" id="result">
+            <span id="percentage"></span>% particles passing the upper counter are accepted by the lower counter.
+            <br>
+            The event rate is estimated to be: <span id="rate_min"></span>/min, or <span id="rate_hour"></span>/hour.
+            <br>
+            Cos&theta; = <span id="cos_theta"></span>, the event rate normalized to Cos<sup>2</sup>&theta; is: <span id="rate_min_norm"></span>/min, or <span id="rate_hour_norm"></span>/hour.
         </div>
 
     </div>
