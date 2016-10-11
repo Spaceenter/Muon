@@ -3,15 +3,15 @@ $(function() {
 	$("#calculate").click(function() {
 		$("#result").css("display", "block");
 
-		var l1 = parseFloat($("input[name=l1]").val());
-		var w1 = parseFloat($("input[name=w1]").val());
-		var l2 = parseFloat($("input[name=l2]").val());
-		var w2 = parseFloat($("input[name=w2]").val());
-		var loff = parseFloat($("input[name=loff]").val());
-		var woff = parseFloat($("input[name=woff]").val());
-		var distance = parseFloat($("input[name=distance]").val());
-		var n_event = parseFloat($("input[name=n_event]").val());
-		var norm_rate = parseFloat($("input[name=norm_rate]").val());
+		var l1 = parseInput($("input[name=l1]").val());
+		var w1 = parseInput($("input[name=w1]").val());
+		var l2 = parseInput($("input[name=l2]").val());
+		var w2 = parseInput($("input[name=w2]").val());
+		var loff = parseInput($("input[name=loff]").val());
+		var woff = parseInput($("input[name=woff]").val());
+		var distance = parseInput($("input[name=distance]").val());
+		var n_event = parseInput($("input[name=n_event]").val());
+		var norm_rate = parseInput($("input[name=norm_rate]").val());
 
 		var percentage = get_accepted_ratio(l1, w1, l2, w2, loff, woff, distance, n_event);
 		var cos_theta;
@@ -54,6 +54,11 @@ $(function() {
 			var pdf_r = Math.random() * 2.0 / 3.0 / Math.sqrt(3);
 			if (pdf_r < pdf) return theta;
 		}
+	}
+
+	function parseInput(input) {
+		if (input == "") return 0;
+		return parseFloat(input);
 	}
 
 	function format_floating_point_number(num) {
