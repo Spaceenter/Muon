@@ -21,7 +21,7 @@ $(function() {
 			cos_theta = distance / Math.sqrt(distance*distance + loff*loff + woff*woff);
 		}
 		var rate_min = l1 * w1 * norm_rate * percentage;
-		var rate_min_norm = rate_min / cos_theta / cos_theta;
+		var rate_min_norm = rate_min * cos_theta * cos_theta;
 
 		$("#percentage").text(format_floating_point_number(percentage * 100));
 		$("#rate_min").text(format_floating_point_number(rate_min));
